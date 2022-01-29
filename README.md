@@ -11,17 +11,25 @@ For years, it was always thought as one of the best places for hiding malware, .
 
 Read more about the first iLO rootkit: [Implant.ARM.iLOBleed.a]
 
+Concise FAQ about iLOBleed and how to / how not to protect against it: [iLOBleed Quick FAQ]
+
 This tool was released by Amnpardaz. If you're curious, you can find more about [Amnpardaz] and [Padvish].
 
 # Requirements
 
 - **Booting with a Linux distro. (Any Linux distro will do)**
-    The scanner needs direct HW access, so you have to use boot on bare-metal (ie. not a VM)
+    
+    The scanner needs direct access to hardware, so you have to use boot on bare-metal (ie. not a VM)
+    
     Porting to another OS is possible but has not been done. Everyone is welcome to do that.
+    
 - **Root Privileges**
 - **iLO Security Override Switch set to ON. (Located on the motherboard)**
+    
     Yes, you have to physically open the server's case and turn the switch ON.
+    
     Sorry, that was the only way we could dump the firmware so that the rootkit couldn't tamper with it. That's how the server was designed.
+    
     Yes, you have to turn the switch back OFF when you're done, or you risk your server's security.
 
 # How to Build
@@ -76,7 +84,9 @@ Please contact apt@amnpardaz.com and provide the 'iLO_V4_1234567.bin' file to an
 
 ## How to turn on the iLO Security Switch
 
-It's something like this, but you should refer to docs or search the Internet if you're unsure: ![](https://community.hpe.com/hpeb/attachments/hpeb/itrc-264/133839/1/IMG_maintenancesw1.jpg )
+It's something like this, but you should refer to docs or search the Internet if you're unsure:
+
+![](https://community.hpe.com/hpeb/attachments/hpeb/itrc-264/133839/1/IMG_maintenancesw1.jpg )
 
 ## I'm infected, what shoud I do?
 
@@ -85,6 +95,10 @@ So you're advised to contact us (apt@amnpardaz.com) to investigate the case.
 If it is in fact an infection, you'll be provided help for fixing the issue, but there are other concerns you'll have to find out. (How and why you'd got infected)
 
 # How can I prevent being infected?
+
+**Is patching the iLO enough?! Should I take backups?!** 
+
+Please read [iLOBleed Quick FAQ] to find out. Below comes an excerpt:
 
 - First of all, please take the time to investigate whether your servers are currently infected or not. It is the first thing you should do.
 - On G10 servers, you should turn on the "Permanently Disallow Downgrades" policy. This option is available inside iLO’s configuration. You should consult the server’s documents.
@@ -100,5 +114,6 @@ In either case, you can use the following tips to harden your servers and lower 
    [Implant.ARM.iLOBleed.a]: <https://threats.amnpardaz.com/en/2021/12/28/implant-arm-ilobleed-a/>
    [Amnpardaz]: <https://www.amnpardaz.com/en/>
    [Padvish]: <https://padvish.com/en-us/>
+   [iLOBleed Quick FAQ]: <https://kb.amnpardaz.com/en/2022/562/what-is-ilobleed/>
 
 
